@@ -4,16 +4,45 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+	[SerializeField] GameObject bullet;
+	Rigidbody2D rb;
+	float speed = 2;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+	
     }
 
     // Update is called once per frame
     void Update()
     {
 		LookTowardsMouse();
+
+
+        if (Input.GetKey(KeyCode.W))
+        {
+			Throttle();
+		}
+
+		if (Input.GetKeyDown(KeyCode.Space))
+        {
+			Shoot();
+        }
+
+
+    }
+
+	public void Throttle()
+    {
+		rb.AddForce(transform.up * speed, ForceMode2D.Force);
+	}
+
+	public void Shoot()
+    {
+		Instantiate(bullet, transform.position, transform.rotation);
     }
 
 	
@@ -38,6 +67,8 @@ public class PlayerController : MonoBehaviour
 	{
 		return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
 	}
+
+	
 
 	
 }
