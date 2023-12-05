@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   asteroidPrefab: {fileID: 6675103258093386428, guid: f2439da4280a25d44b85c1699295bb0c, type: 3}
-  spawnInterval: 0.001
+  spawnInterval: 10
   spawnRadius: 10
 --- !u!4 &2102125329
 Transform:

@@ -1,20 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst;
 using UnityEngine;
 
+
+[BurstCompile]
 public class AsteroidSpawner : MonoBehaviour
 {
     
     [SerializeField] public GameObject asteroidPrefab;
     public float spawnInterval = 3f;
     public float spawnRadius = 10f;
-
+    [BurstCompile]
     private void Start()
     {
         // Start spawning asteroids
         InvokeRepeating("SpawnAsteroid", 0f, spawnInterval);
     }
-
+    [BurstCompile]
     private void SpawnAsteroid()
     {
         // Calculate a random position within the spawn radius
