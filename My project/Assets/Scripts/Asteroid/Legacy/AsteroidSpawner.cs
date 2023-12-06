@@ -11,6 +11,8 @@ public class AsteroidSpawner : MonoBehaviour
     [SerializeField] public GameObject asteroidPrefab;
     public float spawnInterval = 3f;
     public float spawnRadius = 10f;
+
+
     [BurstCompile]
     private void Start()
     {
